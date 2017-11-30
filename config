@@ -1,0 +1,239 @@
+# i3 config file (v4)
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+#
+# This config file uses keycodes (bindsym) and was written for the QWERTY
+# layout.
+#
+# To get a config file with the same key positions, but for your current
+# layout, use the i3-config-wizard
+#
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:arial, FontAweSome 8
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+#font pango:DejaVu Sans Mono 8
+
+# Before i3 v4.8, we used to recommend this one as the default:
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, its unicode glyph coverage is limited, the old
+# X core fonts rendering does not support right-to-left and this being a bitmap
+# font, it doesn’t scale on retina/hidpi displays.
+
+# use these keys for focus, movement, and resize directions when reaching for
+# the arrows is not convenient
+set $up l
+set $down k
+set $left j
+set $right semicolon
+
+# use Mouse+Mod4 to drag floating windows to their wanted position
+floating_modifier Mod4
+
+# starts
+
+bindsym Mod4+Return exec i3-sensible-terminal
+bindsym Mod4+t exec /home/carlos/Telegram/Telegram
+bindsym Mod4+g exec /home/carlos/Programas/firefox/firefox
+bindsym Mod4+n exec thunar
+bindsym Mod1+s exec /home/carlos/Programas/sublime_text_3/sublime_text
+bindsym Mod4+Print exec scrot
+bindsym Mod4+m exec vlc
+bindsym Mod4+Shift+q kill
+bindsym Ctrl+space exec dmenu_run
+
+# change focus
+bindsym Mod4+$left focus left
+bindsym Mod4+$down focus down
+bindsym Mod4+$up focus up
+bindsym Mod4+$right focus right
+
+# alternatively, you can use the cursor keys:
+bindsym Mod4+Left focus left
+bindsym Mod4+Down focus down
+bindsym Mod4+Up focus up
+bindsym Mod4+Right focus right
+
+# move focused window
+bindsym Mod4+Shift+$left move left
+bindsym Mod4+Shift+$down move down
+bindsym Mod4+Shift+$up move up
+bindsym Mod4+Shift+$right move right
+
+# alternatively, you can use the cursor keys:
+bindsym Mod4+Shift+Left move left
+bindsym Mod4+Shift+Down move down
+bindsym Mod4+Shift+Up move up
+bindsym Mod4+Shift+Right move right
+
+# split in horizontal orientation
+bindsym Mod4+h split h
+
+# split in vertical orientation
+bindsym Mod4+v split v
+
+# enter fullscreen mode for the focused container
+bindsym Mod4+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym Mod4+s layout stacking
+bindsym Mod4+w layout tabbed
+bindsym Mod4+e layout toggle split
+
+# toggle tiling / floating
+bindsym Mod4+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym Mod4+space focus mode_toggle
+
+# focus the parent container
+bindsym Mod4+a focus parent
+
+# focus the child container
+#bindsym Mod4+d focus child
+
+# move the currently focused window to the scratchpad
+bindsym Mod4+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym Mod4+minus scratchpad show
+
+#WORKSPACE
+set $wc1 1 <span foreground=\"#ffffff\"></span> <span foreground=\"#ffffff\"> </span>
+set $wc2 2 <span foreground=\"#ffffff\">>_</span>
+set $wc3 3 <span foreground=\"#ffffff\"></span>
+set $wc4 4 <span foreground=\"#ffffff\"></span>
+set $wc5 5 <span foreground=\"#ffffff\"></span>
+set $wc6 6 <span foreground=\"#ffffff\"></span>
+set $wc7 7 <span foreground=\"#ffffff\">7</span>
+set $wc8 8 <span foreground=\"#ffffff\">8</span>
+set $wc9 9 <span foreground=\"#ffffff\">9</span>
+set $wc10 10 <span foreground=\"#ffffff\">10</span>
+
+# switch to workspace
+bindsym Mod4+1 workspace $wc1
+bindsym Mod4+2 workspace $wc2
+bindsym Mod4+3 workspace $wc3
+bindsym Mod4+4 workspace $wc4
+bindsym Mod4+5 workspace $wc5
+bindsym Mod4+6 workspace $wc6
+bindsym Mod4+7 workspace $wc7
+bindsym Mod4+8 workspace $wc8
+bindsym Mod4+9 workspace $wc9
+bindsym Mod4+0 workspace $wc10
+
+
+# move focused container to workspace
+bindsym Mod4+Shift+1 move container to workspace $wc1
+bindsym Mod4+Shift+2 move container to workspace $wc2
+bindsym Mod4+Shift+3 move container to workspace $wc3
+bindsym Mod4+Shift+4 move container to workspace $wc4
+bindsym Mod4+Shift+5 move container to workspace $wc5
+bindsym Mod4+Shift+6 move container to workspace $wc6
+bindsym Mod4+Shift+7 move container to workspace $wc7
+bindsym Mod4+Shift+8 move container to workspace $wc8
+bindsym Mod4+Shift+9 move container to workspace $wc9
+bindsym Mod4+Shift+0 move container to workspace $wc10
+
+
+# reload the configuration file
+bindsym Mod4+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym Mod4+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym Mod4+Shift+e exec "i3-nagbar -t warning -m 'Você pressionou o atalho de saída. Você realmente deseja sair do i3? Isso terminará sua sessão X.' -b 'Sim, sair do i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym $left       resize shrink width 10 px or 10 ppt
+        bindsym $down       resize grow height 10 px or 10 ppt
+        bindsym $up         resize shrink height 10 px or 10 ppt
+        bindsym $right      resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym Mod4+r mode "resize"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+
+
+#######################################################################
+# automatically start i3-config-wizard to offer the user to create a
+# keysym-based config which used their favorite modifier (alt or windows)
+#
+# i3-config-wizard will not launch if there already is a config file
+# in ~/.i3/config.
+#
+# Please remove the following exec line:
+#######################################################################
+bar { 
+status_command i3blocks -c ~/.i3blocks/i3blocks.conf
+font pango:zekton, bold awesome 8
+
+position top
+
+ colors {
+      background #161616
+      separator #ffffff
+      statusline  #ffffff
+      #                     border           background       text
+      focused_workspace     #161616          #161616          #161616
+      inactive_workspace    #161616          #161616          #161616
+      urgent_workspace      #161616          #161616          #161616
+}
+}
+
+#AZUL
+      # background #222324
+      # separator #35507c
+      # statusline  #35507c
+      # #                     border           background       text
+      # focused_workspace     #35507c          #222324          #35507c
+      # inactive_workspace    #35507c          #222324          #35507c
+      # urgent_workspace      #35507c          #222324          #35507c
+
+
+
+#COR LEGAL
+#00868B
+#06ccff - separador
+#008b8b borda
+
+client.focused #fdfdfd #fdfdfd #fdfdfd #fdfdfd
+#client.focused_inactive #414141 #414141 #414141 #414141
+client.unfocused #fdfdfd #fdfdfd #fdfdfd #fdfdfd
+
+hide_edge_borders both
+new_window pixel 3
+new_float pixel 3
+
+for_window [class=".*"] floating enable
+
+# change volume or toggle mute
+bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks 
+bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+1
+bindsym Mod1+l exec oblogout
+
+exec i3-config-wizard
